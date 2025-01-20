@@ -9,10 +9,10 @@ playerController.get('/create', (req, res) => {
 
 playerController.post('/create', (req, res) => {
     const newPlayer = req.body;
-    console.log(newPlayer);
     
+    playerService.create(newPlayer)
 
-    res.end();
+    res.redirect('/');
 })
 
 playerController.get('/:playerId/details', (req, res) => {
