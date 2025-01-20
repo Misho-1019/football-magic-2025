@@ -3,6 +3,10 @@ import playerService from "../services/player-service.js";
 
 const playerController = Router();
 
+playerController.get('/search', (req, res) => {
+    res.render('search')
+})
+
 playerController.get('/create', (req, res) => {
     res.render('create')
 })
