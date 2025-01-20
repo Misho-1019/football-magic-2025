@@ -15,7 +15,8 @@ export default {
 
         players.push({
             id: newId,
-            ...playerData
+            ...playerData,
+            rating: Number(playerData.rating),
         })
     }
 }

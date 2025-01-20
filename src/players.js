@@ -8,7 +8,7 @@ export default [
         headcoach: 'Enzo Maresca',
         years: '22',
         position: 'Midfielder',
-        rating: '9.9'
+        rating: 9.9
     },
     {
         id: "12062f7b-1ffe-9098-ac35-4a4c37bd441s",
@@ -30,16 +30,17 @@ export default [
         headcoach: 'Enzo Maresca',
         years: '25',
         position: 'Midfielder',
-        rating: '7.9'
+        rating: 7.9
     },
     {
         id: '6548c249-3bf5-4c1c-9c58-0b591194f43c',
         name: 'Enzo Fernandez',
-        position: 'Midfield',
         team: 'Chelsea',
+        description: 'Enzo Fernández is an Argentine professional footballer who plays as a midfielder for Chelsea FC in the Premier League. Known for his exceptional passing, vision, and work rate, he is a key playmaker for both club and country. Fernández, a World Cup winner with Argentina in 2022, is regarded as one of the finest midfield talents of his generation.',
+        imageUrl: 'https://tse1.mm.bing.net/th/id/OIF.RMuKYR78s9yP0INXqu5GFA?w=288&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
         headcoach: 'Enzo Maresca',
         years: '24',
-        imageUrl: 'https://tse1.mm.bing.net/th/id/OIF.RMuKYR78s9yP0INXqu5GFA?w=288&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-        description: 'Enzo Fernández is an Argentine professional footballer who plays as a midfielder for Chelsea FC in the Premier League. Known for his exceptional passing, vision, and work rate, he is a key playmaker for both club and country. Fernández, a World Cup winner with Argentina in 2022, is regarded as one of the finest midfield talents of his generation.'
+        position: 'Midfield',
+        rating: 8.4
       }
 ]
