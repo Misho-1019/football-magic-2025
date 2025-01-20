@@ -1,9 +1,10 @@
 import { Router } from "express";
-import players from "../players.js";
+import playerService from "../services/player-service.js";
 
 const router = Router();
 
 router.get('/', (req, res) => {
+    const players = playerService.getAll();
     res.render('home', { players })
 })
 
