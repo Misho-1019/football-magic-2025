@@ -11,10 +11,8 @@ routes.get('/:playerId/details', (req, res) => {
     const playerId = req.params.playerId;
 
     const player = playerService.findPlayer(playerId);
-    console.log(player);
-    
 
-    res.render('details')
+    res.render('details', { player })
 })
 
 export default routes;
