@@ -1,13 +1,21 @@
 import { Router } from "express";
 import playerService from "../services/player-service.js";
 
-const routes = Router();
+const playerController = Router();
 
-routes.get('/create', (req, res) => {
+playerController.get('/create', (req, res) => {
     res.render('create')
 })
 
-routes.get('/:playerId/details', (req, res) => {
+playerController.post('/create', (req, res) => {
+    const newPlayer = req.body;
+    console.log(newPlayer);
+    
+
+    res.end();
+})
+
+playerController.get('/:playerId/details', (req, res) => {
     const playerId = req.params.playerId;
 
     const player = playerService.findPlayer(playerId);
@@ -15,4 +23,4 @@ routes.get('/:playerId/details', (req, res) => {
     res.render('details', { player })
 })
 
-export default routes;
+export default playerController;
