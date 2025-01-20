@@ -4,7 +4,8 @@ import playerService from "../services/player-service.js";
 const playerController = Router();
 
 playerController.get('/search', (req, res) => {
-    res.render('search')
+    const players = playerService.getAll()
+    res.render('search', { players })
 })
 
 playerController.get('/create', (req, res) => {
