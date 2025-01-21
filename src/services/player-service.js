@@ -9,7 +9,14 @@ export default {
             result = result.filter(player => player.name.toLowerCase().includes(filter.search.toLowerCase()))
         }
 
-        return players;
+        if (filter.team) {
+            result = result.filter(player => player.team.toLowerCase().includes(filter.team.toLowerCase()))
+        }
+
+        if (filter.years) {
+            result = result.filter(player => player.years == filter.years)
+        }
+        return result;
     },
     findPlayer(playerId) {
         let result = players.find(player => player.id === playerId)
