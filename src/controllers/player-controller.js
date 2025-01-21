@@ -7,7 +7,7 @@ playerController.get('/search', (req, res) => {
     const filter = req.query;
 
     const players = playerService.getAll(filter)
-    res.render('search', { players })
+    res.render('search', { players, filter })
 })
 
 playerController.get('/create', (req, res) => {

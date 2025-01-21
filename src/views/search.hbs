@@ -2,9 +2,9 @@
             <section id="search">
                 <h1>Search Players</h1>
                 <form action="/players/search" method="GET" class="form">
-                    <input type="text" class="search" name="search" placeholder="Name...">
-                    <input type="text" name="team" class="genre" placeholder="Current Team...">
-                    <input type="number" name="years" class="year" placeholder="Years old...">
+                    <input type="text" class="search" name="search" value="{{filter.search}}" placeholder="Name...">
+                    <input type="text" name="team" class="genre" value="{{filter.team}}" placeholder="Current Team...">
+                    <input type="number" name="years" class="year" value="{{filter.years}}" placeholder="Years old...">
                     <input type="submit" value="search">
                 </form>
             </section>
