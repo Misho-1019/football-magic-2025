@@ -2,7 +2,13 @@ import { v4 as uuid } from "uuid";
 import players from "../players.js";
 
 export default {
-    getAll() {
+    getAll(filter = {}) {
+        let result = players;
+
+        if (filter.search) {
+            result = result.filter(player => player.name.toLowerCase().includes(filter.search.toLowerCase()))
+        }
+
         return players;
     },
     findPlayer(playerId) {
