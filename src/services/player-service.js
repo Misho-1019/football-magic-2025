@@ -1,5 +1,4 @@
-import { v4 as uuid } from "uuid";
-import players from "../players.js";
+
 import Player from "../models/Player.js";
 
 export default {
@@ -26,10 +25,7 @@ export default {
         return result;
     },
     create(playerData) {
-        const newId = uuid();
 
-        players.push({
-            id: newId,
             ...playerData,
             rating: Number(playerData.rating),
         })
