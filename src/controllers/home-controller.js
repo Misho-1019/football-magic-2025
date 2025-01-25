@@ -3,8 +3,8 @@ import playerService from "../services/player-service.js";
 
 const router = Router();
 
-router.get('/', (req, res) => {
-    const players = playerService.getAll();
+router.get('/', async (req, res) => {
+    const players = await playerService.getAll();
     res.render('home', { players })
 })
 
