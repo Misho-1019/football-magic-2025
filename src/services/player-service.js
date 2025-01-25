@@ -20,7 +20,7 @@ export default {
         return result;
     },
     findPlayer(playerId) {
-        let result = players.find(player => player.id === playerId)
+        let result = Player.findById(playerId)
 
         return result;
     },

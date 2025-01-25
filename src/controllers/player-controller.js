@@ -22,10 +22,10 @@ playerController.post('/create', (req, res) => {
     res.redirect('/');
 })
 
-playerController.get('/:playerId/details', (req, res) => {
+playerController.get('/:playerId/details', async (req, res) => {
     const playerId = req.params.playerId;
 
-    const player = playerService.findPlayer(playerId);
+    const player = await playerService.findPlayer(playerId);
 
     res.render('details', { player })
 })
