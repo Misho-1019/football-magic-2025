@@ -14,10 +14,10 @@ playerController.get('/create', (req, res) => {
     res.render('create')
 })
 
-playerController.post('/create', (req, res) => {
+playerController.post('/create', async (req, res) => {
     const newPlayer = req.body;
     
-    playerService.create(newPlayer)
+    await playerService.create(newPlayer)
 
     res.redirect('/');
 })

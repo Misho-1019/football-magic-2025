@@ -26,8 +26,10 @@ export default {
     },
     create(playerData) {
 
+        const result = Player.create({
             ...playerData,
             rating: Number(playerData.rating),
+            years: Number(playerData.years),
         })
     }
 }
