@@ -6,17 +6,18 @@ export default {
     getAll(filter = {}) {
         let result = Player.find({});
 
-        // if (filter.search) {
-        //     result = result.filter(player => player.name.toLowerCase().includes(filter.search.toLowerCase()))
-        // }
+        if (filter.search) {
+            result = result.where({ name: filter.search })
+        }
 
-        // if (filter.team) {
-        //     result = result.filter(player => player.team.toLowerCase().includes(filter.team.toLowerCase()))
-        // }
+        if (filter.team) {
+            result = result.where({ team: filter.team })
+        }
 
-        // if (filter.years) {
-        //     result = result.filter(player => player.years == filter.years)
-        // }
+        if (filter.years) {
+            result = result.where({ years: Number(filter.years) })
+        }
+
         return result;
     },
     findPlayer(playerId) {
