@@ -1,5 +1,6 @@
 import { Router } from "express";
 import playerService from "../services/player-service.js";
+import castService from "../services/cast-service.js";
 
 const playerController = Router();
 
@@ -36,8 +37,9 @@ playerController.get('/:playerId/attach-cast', async (req, res) => {
     const playerId = req.params.playerId;
 
     const player = await playerService.findPlayer(playerId)
-    
-    res.render('player/attach-cast', { player })
+    const casts = await castService.getAll()
+
+    res.render('player/attach-cast', { player, casts })
 })
 
 export default playerController;
