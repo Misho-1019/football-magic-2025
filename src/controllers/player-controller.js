@@ -29,7 +29,7 @@ playerController.get('/:playerId/details', async (req, res) => {
 
     const player = await playerService.findPlayer(playerId);
 
-    res.render('details', { player })
+    res.render('player/details', { player })
 })
 
 export default playerController;
