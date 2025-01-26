@@ -32,4 +32,8 @@ playerController.get('/:playerId/details', async (req, res) => {
     res.render('player/details', { player })
 })
 
+playerController.get('/:playerId/attach-cast', (req, res) => {
+    res.render('player/attach-cast')
+})
+
 export default playerController;
