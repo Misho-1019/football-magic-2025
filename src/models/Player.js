@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 const playerSchema = new Schema({
     name: String,
@@ -9,6 +9,10 @@ const playerSchema = new Schema({
     years: Number,
     position: String,
     rating: Number,
+    casts: [{
+        type: Types.ObjectId,
+        ref: 'Cast'
+    }],
 })
 
 const Player = model('Player', playerSchema)
