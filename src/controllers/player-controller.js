@@ -20,6 +20,8 @@ playerController.post('/create', async (req, res) => {
     await playerService.create(newPlayer)
 
     res.redirect('/');
+
+    res.end()
 })
 
 playerController.get('/:playerId/details', async (req, res) => {
