@@ -32,8 +32,12 @@ playerController.get('/:playerId/details', async (req, res) => {
     res.render('player/details', { player })
 })
 
-playerController.get('/:playerId/attach-cast', (req, res) => {
-    res.render('player/attach-cast')
+playerController.get('/:playerId/attach-cast', async (req, res) => {
+    const playerId = req.params.playerId;
+
+    const player = await playerService.findPlayer(playerId)
+    
+    res.render('player/attach-cast', { player })
 })
 
 export default playerController;
