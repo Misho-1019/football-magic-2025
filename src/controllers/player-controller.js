@@ -42,4 +42,13 @@ playerController.get('/:playerId/attach-cast', async (req, res) => {
     res.render('player/attach-cast', { player, casts })
 })
 
+playerController.post('/:playerId/attach-cast', async (req, res) => {
+    const castId = req.body.cast;
+    const playerId = req.params.playerId;
+
+    await playerService.attachCast( playerId, castId)
+
+    res.redirect(`/players/${playerId}/details`)
+})
+
 export default playerController;

@@ -31,5 +31,15 @@ export default {
             rating: Number(playerData.rating),
             years: Number(playerData.years),
         })
+
+        return result
+    },
+    async attachCast(playerId, castId) {
+        const player = await Player.findById(playerId)
+        player.casts.push(castId)
+
+        await player.save();
+
+        return player
     }
 }
