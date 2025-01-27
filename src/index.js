@@ -3,12 +3,13 @@ import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 import routes from "./routes.js";
 import showRatingHelper from "./helpers/rating-helpers.js";
+import 'dotenv/config'
 
 const app = express();
 
 try {
-    const uri = 'mongodb://localhost:27017/football-magic-jan2025';
-    await mongoose.connect(uri)
+    const defaultUri = 'mongodb://localhost:27017/football-magic-jan2025';
+    await mongoose.connect(process.env.DATABASE_URI ?? defaultUri)
 
     console.log('DB Connected successfully!');
 } catch (err) {
