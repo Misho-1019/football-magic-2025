@@ -37,7 +37,7 @@ playerController.get('/:playerId/attach-cast', async (req, res) => {
     const playerId = req.params.playerId;
 
     const player = await playerService.findPlayer(playerId)
-    const casts = await castService.getAll()
+    const casts = await castService.getAll({ exclude: player.casts })
 
     res.render('player/attach-cast', { player, casts })
 })
