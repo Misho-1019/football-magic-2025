@@ -28,7 +28,7 @@ playerController.post('/create', async (req, res) => {
 playerController.get('/:playerId/details', async (req, res) => {
     const playerId = req.params.playerId;
 
-    const player = await playerService.findPlayer(playerId);
+    const player = await playerService.findPlayerWithCasts(playerId);
 
     res.render('player/details', { player })
 })

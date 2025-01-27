@@ -24,6 +24,9 @@ export default {
 
         return result;
     },
+    findPlayerWithCasts(playerId) {
+        return this.findPlayer(playerId).populate('casts')
+    },
     create(playerData) {
 
         const result = Player.create({
