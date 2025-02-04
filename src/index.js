@@ -1,19 +1,21 @@
 import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
+import 'dotenv/config'
+
 import routes from "./routes.js";
 import showRatingHelper from "./helpers/rating-helpers.js";
-import 'dotenv/config'
-import cookieParser from "cookie-parser";
 import { authMiddleware } from "./middlewares/auth-middleware.js";
 
 const app = express();
 
 try {
-    const defaultUri = 'mongodb://localhost:27017/football-magic-jan2025';
+    const defaultUri = 'mongodb://localhost:27017/football-magic-jan2025'
     await mongoose.connect(process.env.DATABASE_URI ?? defaultUri)
 
-    console.log('DB Connected successfully!');
+    console.log('DB Connected Successfully!');
+    
 } catch (err) {
     console.log('Cannot connect to DB');
     console.error(err.message);
@@ -26,10 +28,11 @@ app.engine('hbs', handlebars.engine({
         allowProtoPropertiesByDefault: true,
     },
     helpers: {
-        showRating: showRatingHelper
+        showRating: showRatingHelper,
     }
 }))
-app.set('view engine', 'hbs')
+
+app.set('view engine', 'hbs');
 app.set('views', './src/views')
 
 app.use('/static', express.static('src/static'))
@@ -39,4 +42,4 @@ app.use(authMiddleware)
 
 app.use(routes)
 
-app.listen(5001, () => console.log('Server is listening on http://localhost:5001...'))
+app.listen(5000, () => console.log('Server is listening on http://localhost:5000...'))

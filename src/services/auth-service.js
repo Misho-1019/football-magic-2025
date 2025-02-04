@@ -9,7 +9,7 @@ export default {
         return User.create(userData)
     },
     async login(email, password) {
-        const user = await User.find({ email })
+        const user = await User.findOne({ email })
 
         if (!user) {
             throw new Error('Invalid email or password')
