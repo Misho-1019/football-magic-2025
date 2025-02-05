@@ -64,8 +64,11 @@ playerController.get('/:playerId/delete', async (req, res) => {
     res.redirect('/');
 })
 
-playerController.get('/:playerId/edit', (req, res) => {
-    res.render('player/edit')
+playerController.get('/:playerId/edit', async (req, res) => {
+    const playerId = req.params.playerId;
+    const player = await playerService.findPlayer(playerId)
+    
+    res.render('player/edit', { player })
 })
 
 export default playerController;
