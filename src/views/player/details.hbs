@@ -23,9 +23,13 @@
                             <p class="disc">Description: {{player.description}}</p>
                             <p class="card-category">Position: {{player.position}}</p>
 
+                            {{#if isCreator}}
                             <div style="display: flex; justify-content: center;">
                                 <a href="/players/{{player.id}}/attach-cast" class="details">Attach</a>
+                                <a href="" class="details">Edit</a>
+                                <a href="" class="details">Delete</a>
                             </div>
+                            {{/if}}
 
                         </div>
                     </div>

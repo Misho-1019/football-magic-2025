@@ -28,8 +28,9 @@ playerController.get('/:playerId/details', async (req, res) => {
     const playerId = req.params.playerId;
 
     const player = await playerService.findPlayerWithCasts(playerId);
+    const isCreator = player.creator && player.creator.toString() === req.user?.id
 
-    res.render('player/details', { player })
+    res.render('player/details', { player, isCreator })
 })
 
 playerController.get('/:playerId/attach-cast', async (req, res) => {
