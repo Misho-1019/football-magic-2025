@@ -17,12 +17,11 @@ playerController.get('/create', (req, res) => {
 
 playerController.post('/create', async (req, res) => {
     const newPlayer = req.body;
+    const userId = req.user?.id;
     
-    await playerService.create(newPlayer)
+    await playerService.create(newPlayer, userId)
 
     res.redirect('/');
-
-    res.end()
 })
 
 playerController.get('/:playerId/details', async (req, res) => {

@@ -27,12 +27,13 @@ export default {
     findPlayerWithCasts(playerId) {
         return this.findPlayer(playerId).populate('casts')
     },
-    create(playerData) {
+    create(playerData, creatorId) {
 
         const result = Player.create({
             ...playerData,
             rating: Number(playerData.rating),
             years: Number(playerData.years),
+            creator: creatorId,
         })
 
         return result

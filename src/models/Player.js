@@ -13,6 +13,10 @@ const playerSchema = new Schema({
         type: Types.ObjectId,
         ref: 'Cast'
     }],
+    creator: {
+        type: Types.ObjectId,
+        ref: 'User',
+    },
 })
 
 const Player = model('Player', playerSchema)
