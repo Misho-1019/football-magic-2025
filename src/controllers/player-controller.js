@@ -1,6 +1,7 @@
 import { Router } from "express";
 import playerService from "../services/player-service.js";
 import castService from "../services/cast-service.js";
+import { isAuth } from "../middlewares/auth-middleware.js";
 
 const playerController = Router();
 
@@ -11,11 +12,11 @@ playerController.get('/search', async (req, res) => {
     res.render('search', { players, filter })
 })
 
-playerController.get('/create', (req, res) => {
+playerController.get('/create', isAuth, (req, res) => {
     res.render('create')
 })
 
-playerController.post('/create', async (req, res) => {
+playerController.post('/create', isAuth, async (req, res) => {
     const newPlayer = req.body;
     const userId = req.user?.id;
     
@@ -33,7 +34,7 @@ playerController.get('/:playerId/details', async (req, res) => {
     res.render('player/details', { player, isCreator })
 })
 
-playerController.get('/:playerId/attach-cast', async (req, res) => {
+playerController.get('/:playerId/attach-cast', isAuth, async (req, res) => {
     const playerId = req.params.playerId;
 
     const player = await playerService.findPlayer(playerId)
@@ -42,7 +43,7 @@ playerController.get('/:playerId/attach-cast', async (req, res) => {
     res.render('player/attach-cast', { player, casts })
 })
 
-playerController.post('/:playerId/attach-cast', async (req, res) => {
+playerController.post('/:playerId/attach-cast', isAuth, async (req, res) => {
     const castId = req.body.cast;
     const playerId = req.params.playerId;
 
@@ -51,7 +52,7 @@ playerController.post('/:playerId/attach-cast', async (req, res) => {
     res.redirect(`/players/${playerId}/details`)
 })
 
-playerController.get('/:playerId/delete', async (req, res) => {
+playerController.get('/:playerId/delete', isAuth, async (req, res) => {
     const playerId = req.params.playerId;
     const player = await playerService.findPlayer(playerId)
 
@@ -64,7 +65,7 @@ playerController.get('/:playerId/delete', async (req, res) => {
     res.redirect('/');
 })
 
-playerController.get('/:playerId/edit', async (req, res) => {
+playerController.get('/:playerId/edit', isAuth, async (req, res) => {
     const playerId = req.params.playerId;
     const player = await playerService.findPlayer(playerId)
     
@@ -73,7 +74,7 @@ playerController.get('/:playerId/edit', async (req, res) => {
     res.render('player/edit', { player, positions })
 })
 
-playerController.post('/:playerId/edit', async (req, res) => {
+playerController.post('/:playerId/edit', isAuth, async (req, res) => {
     const playerData = req.body;
     const playerId = req.params.playerId;
 
