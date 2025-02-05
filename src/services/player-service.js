@@ -39,13 +39,9 @@ export default {
         return result
     },
     async attachCast(playerId, castId) {
-        // const player = await Player.findById(playerId)
-        // player.casts.push(castId)
-
-        // await player.save();
-
-        // return player
-
         return Player.findByIdAndUpdate(playerId, { $push: { casts: castId } })
+    },
+    delete(playerId) {
+        return Player.findByIdAndDelete(playerId);
     }
 }

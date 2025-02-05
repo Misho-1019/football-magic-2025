@@ -51,4 +51,17 @@ playerController.post('/:playerId/attach-cast', async (req, res) => {
     res.redirect(`/players/${playerId}/details`)
 })
 
+playerController.get('/:playerId/delete', async (req, res) => {
+    const playerId = req.params.playerId;
+    const player = await playerService.findPlayer(playerId)
+
+    if (!player.creator?.equals(req.user?.id)) {
+        return res.redirect('/404')
+    }
+
+    await playerService.delete(playerId)
+
+    res.redirect('/');
+})
+
 export default playerController;
