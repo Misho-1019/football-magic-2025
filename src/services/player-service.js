@@ -43,5 +43,8 @@ export default {
     },
     delete(playerId) {
         return Player.findByIdAndDelete(playerId);
-    }
+    },
+    update(playerId, playerData) {
+        return Player.findByIdAndUpdate(playerId, playerData)
+    },
 }

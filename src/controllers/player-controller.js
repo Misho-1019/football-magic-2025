@@ -73,6 +73,15 @@ playerController.get('/:playerId/edit', async (req, res) => {
     res.render('player/edit', { player, positions })
 })
 
+playerController.post('/:playerId/edit', async (req, res) => {
+    const playerData = req.body;
+    const playerId = req.params.playerId;
+
+    await playerService.update(playerId, playerData);
+
+    res.redirect(`/players/${playerId}/details`)
+})
+
 function getPositionsViewData(position) {
     const positionsMap = {
         'goalkeeper': 'Goalkeeper',
