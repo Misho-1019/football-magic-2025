@@ -9,34 +9,32 @@
                         <h2>Edit Post</h2>
                         <ul class="noBullet">
                             <li>
-                                <label for="title">Title:</label>
+                                <label for="title">Name:</label>
                                 <input type="text" class="inputFields" id="title" name="name" value="{{player.name}}"/>
                             </li>
                             <li>
-                                <label for="category">Category:</label>
-                                <select id="category" class="inputFields" name="category">
-                                    <option value="">Select Category</option>
-                                    <option value="tv-show" >TV Show</option>
-                                    <option value="animation">Animation</option>
-                                    <option value="movie" selected>Movie</option>
-                                    <option value="documentary">Documentary</option>
-                                    <option value="short-film">Short Film</option>
+                                <label for="position">Position:</label>
+                                <select id="position" class="inputFields" name="position">
+                                    <option value="">Select Position</option>
+                                    {{#each positions}}
+                                    <option value="{{value}}" {{selected}}>{{label}}</option>
+                                    {{/each}}
                                 </select>
                             </li>
                             <li>
-                                <label for="genre">Genre:</label>
+                                <label for="genre">Current Team:</label>
                                 <input type="text" class="inputFields" id="genre" name="team" value="{{player.team}}" />
                             </li>
                             <li>
-                                <label for="director">Director:</label>
+                                <label for="director">Headcoach:</label>
                                 <input type="text" class="inputFields" id="director" name="headcoach" value="{{player.headcoach}}" />
                             </li>
                             <li>
-                                <label for="date">Year:</label>
+                                <label for="date">Years old:</label>
                                 <input type="number" class="inputFields" id="year" name="years" value="{{player.years}}" />
                             </li>
                             <li>
-                                <label for="image">Movie Poster:</label>
+                                <label for="image">Player Poster:</label>
                                 <input type="text" class="inputFields" id="image" name="imageUrl" value="{{player.imageUrl}}" />
                             </li>
                             <li>

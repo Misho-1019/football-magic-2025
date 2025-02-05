@@ -68,7 +68,26 @@ playerController.get('/:playerId/edit', async (req, res) => {
     const playerId = req.params.playerId;
     const player = await playerService.findPlayer(playerId)
     
-    res.render('player/edit', { player })
+    const positions = getPositionsViewData(player.position)
+
+    res.render('player/edit', { player, positions })
 })
+
+function getPositionsViewData(position) {
+    const positionsMap = {
+        'goalkeeper': 'Goalkeeper',
+        'defender': 'Defender',
+        'midfield': 'Midfield',
+        'forward': 'Forward',
+    }
+
+    const positions = Object.keys(positionsMap).map(value => ({
+        value,
+        label: positionsMap[value],
+        selected: value === position ? 'selected' : '',
+    }))
+
+    return positions;
+}
 
 export default playerController;
