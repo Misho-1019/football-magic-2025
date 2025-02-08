@@ -37,8 +37,7 @@ authController.post('/login', async (req, res) => {
         res.cookie('auth', token, { httpOnly: true })
         res.redirect('/')
     } catch (error) {
-        console.log(error.message);
-        res.redirect('404')
+        return res.render('auth/login', { error: getErrorMessage(error) })
     }
 
 })
