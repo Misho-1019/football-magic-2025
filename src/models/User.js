@@ -15,6 +15,13 @@ const userSchema = new Schema({
     },
 })
 
+userSchema.virtual('rePassword')
+    .set(function (rePassword) {
+        if (rePassword !== this.password) {
+            throw new Error('Password mismatch!')
+        }
+    })
+
 userSchema.pre('save', async function () {
     this.password = await bcrypt.hash(this.password, 10)
 })
